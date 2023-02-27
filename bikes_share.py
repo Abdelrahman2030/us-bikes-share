@@ -2,6 +2,8 @@ import time
 import pandas as pd
 import numpy as np
 
+pd.set_option("display.max_columns", None)
+
 CITY_DATA = { 'Chicago': 'chicago.csv',
               'New York City': 'new_york_city.csv',
               'Washington': 'washington.csv' }
@@ -19,13 +21,8 @@ def get_filters():
 
     print('Hello! Let\'s explore some US bikeshare data!')
     print("Please choose a city to start with, (Chicago, New york city, washington)")
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    
 
-
-    # TO DO: get user input for month (all, january, february, ... , june)
-
-
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     ask = "N"
 
     while ask == "N":
@@ -83,6 +80,15 @@ def get_filters():
     if day_filter == "Yes":
         try:
             day_filter = int(input("write a number for a day, (Eg: 1: saturday, 2:sunday, etc.... ) "))
+            if day_filter not in days_list:
+                while day_filter not in days_list:
+                    print("Sorry you enterd it wrong, try again.")
+                    try:
+                        day_filter = int(input("write a number for a day, Eg: 1: saturday, 2:sunday, etc.... "))
+                    except:
+                        continue
+
+
         except:
             while day_filter not in days_list:
                 print("Sorry you enterd it wrong, try again.")
@@ -267,10 +273,10 @@ def user_stats(df, file_name):
 
 
 def random(file_name):
-    '''Gives the user five random rows
+    """Gives the user five random rows
     input: the filtered data frame
     output: five random rows
-    '''
+    """
     df = pd.read_csv(file_name)
 
     answer = input("Do you want five random rows (Yes or No): ").lower().title()
@@ -289,11 +295,6 @@ def random(file_name):
         while answer not in options_list:
             answer = input("The value that you enterd is invalid, please choose (\"Yes\" OR \"No\") ").lower()
             answer = answer.title().strip()
-
-
-
-
-
 
 
 def main():
