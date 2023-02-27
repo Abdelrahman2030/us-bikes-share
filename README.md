@@ -20,7 +20,7 @@ The Chicago and New York City files also have the following two columns:
 <br>Birth Year
 
 ## Main objective of the project
-Create an interactive program that lest's the user choose wich city he wants to see its data and let him filter the data set by day and month if he wanted.
+Create an interactive program that lest's the user choose which city he wants to see its data and lets him filter the data set by day and month if he wanted.
 <br>Then the program would calculate basic statistics about the data set (the most common month, number of subscribers, females or males, most common station, average trip duration, etc.).
 <br>Then display all of these information for the user.
 
